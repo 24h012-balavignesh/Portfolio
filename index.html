@@ -1,0 +1,522 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>BALAVIGNESH — Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  <style>
+
+    :root{
+
+      --bg: #fbfcfd;
+
+      --card: #ffffff;
+
+      --muted: #6b7280;
+
+      --accent1: #0ea5a4; /* teal */
+
+      --accent2: #2563eb; /* blue */
+
+      --radius: 14px;
+
+      --max-w: 1100px;
+
+      --glass: rgba(255,255,255,0.6);
+
+      color-scheme: light;
+
+    }
+
+    *{box-sizing:border-box}
+
+    html,body{height:100%}
+
+    body{
+
+      margin:0;
+
+      font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+
+      background:linear-gradient(180deg,var(--bg),#f7fbff);
+
+      color:#0f172a;
+
+      -webkit-font-smoothing:antialiased;
+
+      -moz-osx-font-smoothing:grayscale;
+
+      line-height:1.45;
+
+      padding:28px 20px;
+
+      display:flex;
+
+      justify-content:center;
+
+    }
+
+    .wrap{
+
+      width:100%;
+
+      max-width:var(--max-w);
+
+    }
+
+    header{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:16px;
+
+      margin-bottom:24px;
+
+    }
+
+    .logo{
+
+      display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit
+
+    }
+
+    .logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+
+    nav{display:flex;gap:14px;align-items:center}
+
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:500}
+
+    nav a.cta{background:var(--accent2);color:#fff}
+
+    /* Hero */
+
+    .hero{
+
+      background:var(--card);
+
+      border-radius:var(--radius);
+
+      padding:28px;
+
+      display:grid;
+
+      grid-template-columns: 1fr 320px;
+
+      gap:22px;
+
+      align-items:center;
+
+      box-shadow:0 6px 30px rgba(17,24,39,0.06);
+
+      margin-bottom:20px;
+
+    }
+
+    .intro h1{font-size:28px;margin:0 0 8px}
+
+    .intro p.lead{margin:0 0 14px;color:var(--muted)}
+
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+
+    .tag{background:linear-gradient(90deg,rgba(37,99,235,0.12),rgba(14,165,164,0.08));padding:6px 10px;border-radius:999px;color:var(--accent2);font-weight:600;font-size:13px}
+
+    .photo-card{background:linear-gradient(180deg,#fff, #f7fbff);padding:12px;border-radius:12px;display:flex;flex-direction:column;align-items:center;gap:12px}
+
+    .photo{width:220px;height:220px;border-radius:12px;background:linear-gradient(135deg,#eef2ff,#ecfeff);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted);overflow:hidden}
+
+    .photo img{width:100%;height:100%;object-fit:cover}
+
+    /* Sections */
+
+    section.card{
+
+      background:var(--card);
+
+      border-radius:var(--radius);
+
+      padding:20px;
+
+      box-shadow:0 6px 28px rgba(15,23,42,0.04);
+
+      margin-bottom:18px;
+
+    }
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+    h2{margin:0 0 12px;font-size:18px}
+
+    /* Skills */
+
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+
+    .skill{padding:8px 10px;border-radius:10px;background:#f1f5f9;color:#0f172a;font-weight:600;font-size:13px}
+
+    /* Projects */
+
+    .project{display:flex;gap:12px;padding:12px;border-radius:10px;border:1px solid rgba(15,23,42,0.04);align-items:flex-start}
+
+    .project .meta{flex:1}
+
+    .project h3{margin:0 0 6px;font-size:15px}
+
+    .pill{display:inline-block;padding:6px 8px;border-radius:8px;background:#eef2ff;font-weight:600;font-size:12px;margin-right:6px}
+
+    /* Certifications */
+
+    .cert-list{display:flex;flex-direction:column;gap:12px}
+
+    .cert{display:flex;gap:12px;align-items:center}
+
+    .cert .badge{width:62px;height:42px;border-radius:8px;background:linear-gradient(135deg,#fff,#eef2ff);display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* Resume / Contact */
+
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:0;background:var(--accent1);color:white;font-weight:700;text-decoration:none}
+
+    .btn.secondary{background:transparent;border:1px solid rgba(15,23,42,0.06);color:var(--muted);font-weight:600}
+
+    /* Contact form */
+
+    form .row{display:flex;gap:10px}
+
+    .field{display:flex;flex-direction:column}
+
+    input[type=text],input[type=email],textarea{padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.06);outline:none;font-size:14px}
+
+    textarea{min-height:110px;resize:vertical}
+
+    footer{margin-top:6px;color:var(--muted);font-size:13px;text-align:center;padding:6px}
+
+    /* Responsive */
+
+    @media (max-width:880px){
+
+      .hero{grid-template-columns:1fr;}
+
+      .grid-2{grid-template-columns:1fr}
+
+      nav{display:none}
+
+    }
+
+  </style></head>
+
+<body>
+
+  <div class="wrap">
+
+    <header>
+
+      <a class="logo" href="#">
+
+        <div class="mark">P</div>
+
+        <div>
+
+          <div style="font-weight:700">Portfolio</div>
+
+          <div style="font-size:12px;color:var(--muted)">Aspiring Web Developer</div>
+
+        </div>
+
+      </a><nav>
+
+    <a href="#about">About</a>
+
+    <a href="#skills">Skills</a>
+
+    <a href="#projects">Projects</a>
+
+    <a href="#certs">Certifications</a>
+
+    <a class="cta" href="#contact">Contact</a>
+
+  </nav>
+
+</header>
+
+<!-- HERO -->
+
+<main class="hero">
+
+  <div class="intro">
+
+    <h1>Hello — I'm <span style="background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;">BALAVIGNESH</span></h1>
+
+    <p class="lead">Aspiring Web Developer. I build clean, responsive websites and simple web apps. Currently focused on front-end development, JavaScript, and practical projects that solve small, real-world problems.</p>
+
+    <div class="tags">
+
+      <div class="tag">Open to opportunities</div>
+
+      <div class="tag">Student Projects</div>
+
+    </div>
+
+    <div style="margin-top:16px" class="actions">
+
+      <a class="btn" href="/assets/BALAVIGNESH_Resume.pdf" download>Download Resume (PDF)</a>
+
+      <a class="btn secondary" href="mailto:your.email@example.com">Email Me</a>
+
+      <a class="btn secondary" href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
+
+    </div>
+
+  </div>
+
+  <aside class="photo-card">
+
+    <div class="photo" id="profile-photo">
+
+      <!-- Replace with your real photo -->
+
+      <img src="/assets/profile.jpg" alt="BALAVIGNESH Photo" onerror="this.style.display='none'">
+
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+
+        <div style="font-weight:700">BALAVIGNESH</div>
+
+        <div style="font-size:12px;color:var(--muted)">Aspiring Web Developer</div>
+
+      </div>
+
+    </div>
+
+    <div style="width:100%;display:flex;justify-content:center">
+
+      <a class="btn" href="#projects">View Projects</a>
+
+    </div>
+
+  </aside>
+
+</main>
+
+<!-- ABOUT -->
+
+<section id="about" class="card">
+
+  <h2>About Me</h2>
+
+  <p style="color:var(--muted);margin-bottom:12px">I am a student and aspiring web developer with a keen interest in building user-friendly web experiences. I have studied relevant coursework and completed projects in HTML, CSS, JavaScript, and basic backend concepts. My goal is to grow into a full-stack developer and contribute to impactful, accessible web projects.</p>
+
+  <div class="grid-2">
+
+    <div>
+
+      <p><strong>Education</strong><br> BCA(Agurchand Manmull Jain College) — 2024-2027</p>
+
+      <p><strong>Career Goals</strong><br> Learn advanced JavaScript, frameworks (React / Vue), and get internship/full-time role in web development.</p>
+
+    </div>
+
+    <div>
+
+      <p><strong>Interests</strong><br> Web development, UI/UX, open-source, problem solving.</p>
+
+      <p><strong>Languages</strong><br> Tamil (native), English (fluent)</p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills" class="card">
+
+  <h2>Skills</h2>
+
+  <div class="skills" style="margin-bottom:12px">
+
+    <div class="skill">HTML</div>
+
+    <div class="skill">CSS</div>
+
+    <div class="skill">JavaScript (ES6+)</div>
+
+    <div class="skill">Responsive Design</div>
+
+    <div class="skill">Basic Node.js</div>
+
+    <div class="skill">Teamwork</div>
+
+    <div class="skill">Problem Solving</div>
+
+    <div class="skill">Communication</div>
+
+  </div>
+
+  <small style="color:var(--muted)">Tip: replace or reorder the skills above to match your strengths.</small>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects" class="card">
+
+  <h2>Projects</h2>
+
+  <div class="project">
+
+    <div class="meta">
+
+      <h3>Personal Portfolio Website</h3>
+
+      <div style="color:var(--muted);font-size:13px;margin-bottom:8px">A responsive portfolio built with HTML, CSS and JavaScript to showcase projects and resume.</div>
+
+      <div>
+
+        <span class="pill">HTML</span>
+
+        <span class="pill">CSS</span>
+
+        <span class="pill">JavaScript</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="project" style="margin-top:10px">
+
+    <div class="meta">
+
+      <h3>To-Do Web App</h3>
+
+      <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Simple task manager with add/edit/delete functionality and localStorage persistence.</div>
+
+      <div>
+
+        <span class="pill">JavaScript</span>
+
+        <span class="pill">LocalStorage</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <small style="color:var(--muted);display:block;margin-top:12px">Add your own project cards here with links and screenshots.</small>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="card">
+
+  <h2>Contact Me</h2>
+
+  <p style="color:var(--muted);margin-bottom:10px">Have questions or want to collaborate? Send a message — I'll reply soon.</p>
+
+  <form id="contactForm">
+
+    <div class="row">
+
+      <div class="field" style="flex:1">
+
+        <label for="name" style="font-weight:600;font-size:13px;margin-bottom:6px">Name</label>
+
+        <input id="name" name="name" type="text" required placeholder="Your name">
+
+      </div>
+
+      <div class="field" style="flex:1">
+
+        <label for="email" style="font-weight:600;font-size:13px;margin-bottom:6px">Email</label>
+
+        <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+      </div>
+
+    </div>
+
+    <div class="field" style="margin-top:10px">
+
+      <label for="message" style="font-weight:600;font-size:13px;margin-bottom:6px">Message</label>
+
+      <textarea id="message" name="message" required placeholder="Write your message..."></textarea>
+
+    </div>
+
+    <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+
+      <button type="submit" class="btn">Send Message</button>
+
+      <button type="button" class="btn secondary" id="clearBtn">Clear</button>
+
+    </div>
+
+  </form>
+
+  <small style="display:block;margin-top:10px;color:var(--muted)">Or email directly: <a href="mailto:your.email@example.com">24h012@amjaincollege.edu.in</a></small>
+
+</section>
+
+<footer>
+
+  © <span id="year"></span> BALAVIGNESH — Built with ❤️ • Replace placeholders (photo, resume link, email, LinkedIn) before submitting.
+
+</footer>
+
+  </div>  <script>
+
+    // Insert current year
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple contact form handler -> opens mail client with form contents
+
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+
+      const email = document.getElementById('email').value.trim();
+
+      const message = document.getElementById('message').value.trim();
+
+      if(!name || !email || !message){ alert('Please fill all fields.'); return; }
+
+      const subject = encodeURIComponent('Portfolio contact from ' + name);
+
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+
+      // Opens user's email client; replace with server endpoint or Formspree if you want to collect messages
+
+      window.location.href = 'mailto:your.email@example.com?subject=' + subject + '&body=' + body;
+
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', function(){
+
+      document.getElementById('contactForm').reset();
+
+    });
+
+  </script></body>
+
+</html>
